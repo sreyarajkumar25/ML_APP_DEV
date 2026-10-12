@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.yourname.mllearn.data.ALL_TOPICS
-import com.yourname.mllearn.topics.gradient_descent.GradientDescentScreen
+import com.yourname.mllearn.topics.common.TopicLessonScreen
 import com.yourname.mllearn.ui.home.HomeScreen
 
 @Composable
@@ -22,10 +22,10 @@ fun AppNav() {
             arguments = listOf(navArgument("topicId") { type = NavType.StringType })
         ) { entry ->
             val topic = ALL_TOPICS.firstOrNull { it.id == entry.arguments?.getString("topicId") }
-            if (topic?.available == true && topic.id == "gradient_descent") {
-                GradientDescentScreen(onBack = { navController.popBackStack() })
+            if (topic != null && topic.available) {
+                TopicLessonScreen(topic = topic, onBack = { navController.popBackStack() })
             } else {
-                navController.popBackStack()
+                HomeScreen { selected -> navController.navigate("topic/${selected.id}") }
             }
         }
     }

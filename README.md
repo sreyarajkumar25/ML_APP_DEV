@@ -4,7 +4,7 @@ ML Learn is an offline Android learning app built with Kotlin and Jetpack Compos
 
 ## Phase 1
 
-The home screen lists all ten planned topics. Gradient Descent is implemented with Theory and Playground tabs, a pure Kotlin optimization engine, selectable update variants, and a live loss-curve plot. The other topics are marked as upcoming.
+All ten topics are implemented with Theory and Playground tabs, offline Kotlin engines, interactive controls, live plots, and result summaries. The topic engines use only Kotlin math and have no Compose or Android dependencies.
 
 ## Build
 
